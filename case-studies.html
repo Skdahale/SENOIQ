@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENOIQ - Results That Matter | AI & Automation Case Studies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Feather Icons for lightweight SVGs -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* Page-specific styling for case-studies.html */
+        :root {
+            --bg-color: #F8F5F2;
+            /* Cream/Beige Background requested by user */
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            --primary-orange: #C96B49;
+            --primary-green: #255851;
+        }
+
+        body {
+            background-color: var(--bg-color);
+        }
+
+        .active {
+            color: var(--primary-orange) !important;
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 4px;
+        }
+
+        /* Case Studies Hero */
+        .case-studies-hero {
+            padding: 120px 0 60px 0;
+            text-align: center;
+            background: radial-gradient(circle at top right, rgba(201, 107, 73, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at bottom left, rgba(38, 90, 83, 0.04) 0%, transparent 45%);
+        }
+
+        .case-studies-hero .container {
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .case-studies-hero h1 {
+            font-size: 54px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .case-studies-hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        /* Statistics Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px 16px;
+            box-shadow: var(--glass-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            border-color: rgba(38, 90, 83, 0.2);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Interactive Category Tabs */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            padding: 0 24px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-light);
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-green);
+            border-color: var(--primary-green);
+        }
+
+        .filter-btn.active-tab {
+            background: var(--primary-green);
+            color: var(--white);
+            border-color: var(--primary-green);
+            box-shadow: 0 8px 20px rgba(38, 90, 83, 0.15);
+        }
+
+        /* Case Studies Grid Section */
+        .case-grid-section {
+            padding: 40px 0 100px 0;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Premium Case Card Glassmorphism */
+        .case-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Glow tracking effect styling */
+        .case-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+                    rgba(201, 107, 73, 0.15),
+                    transparent 40%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .case-card:hover::before {
+            opacity: 1;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(38, 90, 83, 0.2);
+        }
+
+        .case-image-wrap {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: #eae3db;
+            z-index: 2;
+        }
+
+        .case-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .case-card:hover .case-image {
+            transform: scale(1.08);
+        }
+
+        .case-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--white);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-dark);
+            z-index: 3;
+        }
+
+        .case-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            z-index: 2;
+        }
+
+        .case-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .case-stat {
+            color: var(--primary-orange);
+            font-weight: 700;
+            font-size: 17px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .case-stat::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+        }
+
+        .case-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .case-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 20px;
+        }
+
+        .case-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .case-list li i {
+            width: 16px;
+            height: 16px;
+            color: var(--primary-green);
+            flex-shrink: 0;
+        }
+
+        .view-study-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-green);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 8px 0;
+            transition: var(--transition);
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .view-study-btn i {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .case-card:hover .view-study-btn {
+            color: var(--primary-orange);
+        }
+
+        .case-card:hover .view-study-btn i {
+            transform: translateX(4px);
+        }
+
+        /* Animation Classes for Filtering */
+        .case-card.fade-out {
+            opacity: 0;
+            transform: scale(0.95) translateY(15px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .case-card.fade-in {
+            opacity: 0;
+            transform: scale(0.95) translateY(15px);
+        }
+
+        /* Detail Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 680px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transform: translateY(30px);
+            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .modal.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            position: relative;
+            height: 280px;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--white);
+            color: var(--primary-orange);
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-tag {
+            display: inline-block;
+            background: rgba(201, 107, 73, 0.1);
+            color: var(--primary-orange);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .modal-result {
+            font-size: 18px;
+            color: var(--primary-orange);
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-result::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+        }
+
+        .modal-desc {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .modal-bullet-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .modal-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .modal-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .modal-list li i {
+            color: var(--primary-green);
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .case-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-hero h1 {
+                font-size: 38px;
+            }
+
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-card {
+                width: 95%;
+            }
+
+            .modal-body {
+                padding: 24px;
+            }
+
+            .modal-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="case-studies.html" class="nav-link active">Case Studies</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn-primary">Book a Call <i data-feather="arrow-right"></i></a>
+        </div>
+    </header>
+
+    <section class="case-studies-hero">
+        <div class="container">
+            <div class="section-label">
+                <span class="dot"></span> Case Studies
+            </div>
+            <h1>Results That <span class="text-orange">Matter</span></h1>
+            <p>See how Senoiq helps businesses automate operations, reduce costs, and scale with AI-powered solutions.
+            </p>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Hours Save</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">Faster Processes</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">Higher Conversion Rate</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container case-grid-section">
+        <!-- Filter Tabs -->
+        <div class="filter-container">
+            <button class="filter-btn active-tab" data-filter="all">All Case Studies</button>
+            <button class="filter-btn" data-filter="process">Process Automation</button>
+            <button class="filter-btn" data-filter="ai-chatbot">AI & Chatbots</button>
+            <button class="filter-btn" data-filter="lead-gen">Lead Generation</button>
+            <button class="filter-btn" data-filter="content">Content Automation</button>
+        </div>
+
+        <div class="case-grid spotlight-container" id="glow-container">
+            <!-- Case Study 1 -->
+            <div class="case-card glow-card" data-category="process">
+                <div class="case-image-wrap">
+                    <div class="case-tag"><span class="dot green"></span> Process Automation</div>
+                    <img src="assets/case_study_1.png" alt="IT Process Automation" class="case-image">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">IT Process Automation</h3>
+                    <p class="case-stat">120+ Hours Saved Every Month</p>
+                    <p class="case-desc">Automated manual data entry, processing, and reporting across IT service
+                        pipelines, reducing delays and human error.</p>
+                    <ul class="case-list">
+                        <li><i data-feather="check-circle"></i> 85% reduction in manual work</li>
+                        <li><i data-feather="check-circle"></i> 100% reporting accuracy</li>
+                        <li><i data-feather="check-circle"></i> Faster leadership decisions</li>
+                    </ul>
+                    <a href="it-process-automation.html" class="view-study-btn">View Case Study <i
+                            data-feather="chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-card glow-card" data-category="ai-chatbot">
+                <div class="case-image-wrap">
+                    <div class="case-tag"><span class="dot blue"></span> AI & Chatbots</div>
+                    <img src="assets/case_study_2.png" alt="AI-Powered NLP Chatbot" class="case-image">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">AI-Powered NLP Chatbot</h3>
+                    <p class="case-stat">92% Faster Customer Responses</p>
+                    <p class="case-desc">Implemented an advanced natural language processing chatbot to handle customer
+                        support inquiries 24/7, reducing workload on human agents.</p>
+                    <ul class="case-list">
+                        <li><i data-feather="check-circle"></i> 100% query automation rate</li>
+                        <li><i data-feather="check-circle"></i> 70% reduction in support workload</li>
+                        <li><i data-feather="check-circle"></i> 24/7 customer support</li>
+                    </ul>
+                    <a href="ai-powered-nlp-chatbot.html" class="view-study-btn">View Case Study <i
+                            data-feather="chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-card glow-card" data-category="ai-chatbot">
+                <div class="case-image-wrap">
+                    <div class="case-tag"><span class="dot blue"></span> AI & Chatbots</div>
+                    <img src="assets/case_study_3.png" alt="AI Answer Evaluation Platform" class="case-image">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">AI Answer Evaluation Platform</h3>
+                    <p class="case-stat">90% Faster Evaluation Process</p>
+                    <p class="case-desc">Built a secure, scalable evaluation tool that analyzes assessment responses
+                        using generative AI, providing instant fair feedback.</p>
+                    <ul class="case-list">
+                        <li><i data-feather="check-circle"></i> 90% reduction in manual effort</li>
+                        <li><i data-feather="check-circle"></i> 100% fair result generation</li>
+                        <li><i data-feather="check-circle"></i> Multi-lingual assessment support</li>
+                    </ul>
+                    <a href="ai-answer-evaluation-platform.html" class="view-study-btn">View Case Study <i
+                            data-feather="chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Case Study 4 -->
+            <div class="case-card glow-card" data-category="lead-gen">
+                <div class="case-image-wrap">
+                    <div class="case-tag"><span class="dot green"></span> Lead Generation</div>
+                    <img src="assets/case_study_4.png" alt="AI Lead Generation System" class="case-image">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">AI Lead Generation System</h3>
+                    <p class="case-stat">42% Higher Lead Conversion</p>
+                    <p class="case-desc">Designed an end-to-end lead qualification and scoring model that identifies
+                        high-intent leads and triggers automated followups.</p>
+                    <ul class="case-list">
+                        <li><i data-feather="check-circle"></i> Automated contact scraping & routing</li>
+                        <li><i data-feather="check-circle"></i> AI-personalized cold outreach emails</li>
+                        <li><i data-feather="check-circle"></i> Real-time CRM logging & triggers</li>
+                    </ul>
+                    <a href="ai-lead-generation-system.html" class="view-study-btn">View Case Study <i
+                            data-feather="chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Case Study 5 -->
+            <div class="case-card glow-card" data-category="process">
+                <div class="case-image-wrap">
+                    <div class="case-tag"><span class="dot green"></span> Process Automation</div>
+                    <img src="assets/case_study_5.png" alt="WhatsApp Automation" class="case-image">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">WhatsApp Automation</h3>
+                    <p class="case-stat">80% Query Automation</p>
+                    <p class="case-desc">Deployed a robust WhatsApp Business API solution that automates customer
+                        booking, FAQs, and instant updates directly in chat.</p>
+                    <ul class="case-list">
+                        <li><i data-feather="check-circle"></i> Direct two-way calendar sync inside chat</li>
+                        <li><i data-feather="check-circle"></i> Automated reservation notifications</li>
+                        <li><i data-feather="check-circle"></i> Instant human support handover logic</li>
+                    </ul>
+                    <a href="whatsapp-automation.html" class="view-study-btn">View Case Study <i
+                            data-feather="chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Case Study 6 -->
+            <div class="case-card glow-card" data-category="content">
+                <div class="case-image-wrap">
+                    <div class="case-tag"><span class="dot blue"></span> Content Automation</div>
+                    <img src="assets/case_study_6.png" alt="AI Content Automation" class="case-image">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">AI Content Automation</h3>
+                    <p class="case-stat">75% Faster Content Production</p>
+                    <p class="case-desc">Created an AI-driven content assembly engine that generates drafts, social
+                        copy, and product updates based on raw brand inputs.</p>
+                    <ul class="case-list">
+                        <li><i data-feather="check-circle"></i> Scaled multichannel publishing speed by 4x</li>
+                        <li><i data-feather="check-circle"></i> Consistency across brand voices</li>
+                        <li><i data-feather="check-circle"></i> Zero manual drafting overhead</li>
+                    </ul>
+                    <a href="ai-content-automation.html" class="view-study-btn">View Case Study <i
+                            data-feather="chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Case Study 7 -->
+            <div class="case-card glow-card" data-category="process">
+                <div class="case-image-wrap">
+                    <div class="case-tag"><span class="dot green"></span> Process Automation</div>
+                    <img src="assets/case_study_7.png" alt="Business Process Automation" class="case-image">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">Business Process Automation</h3>
+                    <p class="case-stat">₹12L+ Annual Savings</p>
+                    <p class="case-desc">Streamlined manual back-office tasks, invoicing, and reporting schedules into a
+                        unified hub, saving significant operating costs.</p>
+                    <ul class="case-list">
+                        <li><i data-feather="check-circle"></i> Eliminated admin invoicing errors</li>
+                        <li><i data-feather="check-circle"></i> Consolidated software subscriptions</li>
+                        <li><i data-feather="check-circle"></i> Real-time management dashboards</li>
+                    </ul>
+                    <a href="business-process-automation.html" class="view-study-btn">View Case Study <i
+                            data-feather="chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Details Modal -->
+    <div class="modal" id="caseModal" onclick="closeCaseModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <img src="" alt="" class="modal-image" id="modalImage">
+                <button class="modal-close" onclick="closeCaseModal()"><i data-feather="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <span class="modal-tag" id="modalTag"></span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-result" id="modalResult"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-bullet-title">Key Project Highlights</div>
+                <ul class="modal-list" id="modalList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                    </div>
+                </a>
+
+                <p class="footer-desc">We specialize in modern workflow automation and systems consultancy firm. We
+                    design, build, and support manual workflow to optimized and automated operations.</p>
+                <div class="social-links dark">
+                    <a href="https://www.instagram.com/senoiq.ai/" target="_blank"><i data-feather="instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/senoiq-ai-a59739417/" target="_blank"><i data-feather="linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61590957166415&rdid=LtUJjN8qajWeyWb3&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14bvLGg4zK7%2F#" target="_blank"><i data-feather="facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="index.html#about">About</a>
+                <a href="#">Blogs</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Services</h4>
+                <a href="services.html">AI Automation</a>
+                <a href="services.html">AI Chatbot</a>
+                <a href="services.html">AI Agents</a>
+                <a href="services.html">Appointment Booking</a>
+                <a href="services.html">Workflow Automation</a>
+                <a href="services.html">AI Lead Generation</a>
+            </div>
+            <div class="footer-inquiries">
+                <h4 class="footer-title">Inquiries</h4>
+                <a href="mailto:senoiq.ai@gmail.com">senoiq.ai@gmail.com</a>
+                <p>Nashik, Maharashtra - 422101</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SENOIQ. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Initialize icons
+        feather.replace();
+        lucide.createIcons();
+
+        // Spotlight mouse tracker coordinates mapping
+        const glowContainer = document.getElementById('glow-container');
+        const glowCards = document.querySelectorAll('.glow-card');
+
+        if (glowContainer && glowCards.length > 0) {
+            glowContainer.addEventListener('mousemove', (e) => {
+                glowCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+
+        // IntersectionObserver for elements scroll animations
+        const pageObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const pageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+
+                    setTimeout(() => {
+                        entry.target.style.transition = '';
+                        entry.target.style.transitionDelay = '0s';
+                    }, 1000);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, pageObserverOptions);
+
+        const scrollAnimateElements = document.querySelectorAll('.stat-box, .case-card, .filter-btn');
+        scrollAnimateElements.forEach((el, index) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+
+            if (el.classList.contains('stat-box')) {
+                el.style.transitionDelay = `${index * 0.08}s`;
+            } else if (el.classList.contains('case-card')) {
+                el.style.transitionDelay = `${(index % 3) * 0.1}s`;
+            } else if (el.classList.contains('filter-btn')) {
+                el.style.transitionDelay = `${index * 0.05}s`;
+            }
+
+            pageObserver.observe(el);
+        });
+
+        // Case Studies Filtering Mechanism
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const caseCards = document.querySelectorAll('.case-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Change active tab style
+                filterButtons.forEach(b => b.classList.remove('active-tab'));
+                btn.classList.add('active-tab');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Fade out cards first
+                caseCards.forEach(card => {
+                    card.classList.add('fade-out');
+                });
+
+                setTimeout(() => {
+                    caseCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.style.display = 'flex';
+                            card.classList.remove('fade-out');
+                            card.classList.add('fade-in');
+
+                            // Trigger reflow
+                            void card.offsetWidth;
+
+                            card.classList.remove('fade-in');
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }, 250);
+            });
+        });
+
+        // Case Study Details Data
+        const caseStudiesData = {
+            1: {
+                title: "IT Process Automation",
+                tag: "Process Automation",
+                result: "120+ Hours Saved Every Month",
+                desc: "Automated manual data entry, processing, and reporting across IT service pipelines. This system handles incident logging, triage, and assignment automatically, ensuring critical requests are escalated in real-time.",
+                img: "assets/case_study_1.png",
+                list: [
+                    "85% reduction in manual ticket handling",
+                    "100% reporting accuracy with automatic databases",
+                    "Significantly faster leadership decision turnaround",
+                    "Seamless Slack and Jira pipeline integration"
+                ]
+            },
+            2: {
+                title: "AI-Powered NLP Chatbot",
+                tag: "AI & Chatbots",
+                result: "92% Faster Customer Responses",
+                desc: "Implemented an advanced natural language processing chatbot trained on historical brand databases to resolve support inquiries 24/7. Integrates with existing CRM and helpdesk pipelines for instant, verified replies.",
+                img: "assets/case_study_2.png",
+                list: [
+                    "100% query automation rate for common FAQs",
+                    "70% workload reduction for live customer support",
+                    "Responsive 24/7 multi-channel operation",
+                    "Intelligent human-handoff rules based on intent"
+                ]
+            },
+            3: {
+                title: "AI Answer Evaluation Platform",
+                tag: "AI & Chatbots",
+                result: "90% Faster Evaluation Process",
+                desc: "Built a secure, scalable evaluation tool that analyzes assessment responses using generative AI. It grades responses based on precise rubric sheets, ensuring fair outcomes with multi-lingual capabilities.",
+                img: "assets/case_study_3.png",
+                list: [
+                    "90% reduction in manual assessment efforts",
+                    "100% fair and standardized grading generation",
+                    "Multi-lingual translation and evaluation support",
+                    "Instant analytics dashboards for educators"
+                ]
+            },
+            4: {
+                title: "AI Lead Generation System",
+                tag: "Lead Generation",
+                result: "42% Higher Lead Conversion",
+                desc: "Designed an end-to-end lead qualification and scoring model. The tool dynamically scrapes contact databases, qualifies interest based on firmographics, and drafts personalized follow-up sequences automatically.",
+                img: "assets/case_study_4.png",
+                list: [
+                    "Automated contact scraping and validation",
+                    "AI-personalized cold outreach emails based on LinkedIn data",
+                    "Real-time CRM logging and tasks trigger",
+                    "Smart follow-up timing to maximize response rates"
+                ]
+            },
+            5: {
+                title: "WhatsApp Automation",
+                tag: "Process Automation",
+                result: "80% Query Automation",
+                desc: "Deployed a robust WhatsApp Business API solution that automates customer booking pipelines, FAQs, and instant booking updates directly in user chats. Improves appointment attendance and reduces human management chores.",
+                img: "assets/case_study_5.png",
+                list: [
+                    "Direct two-way calendar sync inside chat thread",
+                    "Automated slot suggestions and reminders",
+                    "No-show recovery SMS and WhatsApp campaigns",
+                    "Instant support desk handoff for complex requests"
+                ]
+            },
+            6: {
+                title: "AI Content Automation",
+                tag: "Content Automation",
+                result: "75% Faster Content Production",
+                desc: "Created an AI-driven content assembly engine that generates drafts, social copy variants, and product updates based on raw brand notes. Standardizes brand tone and speeds up visual assets scheduling.",
+                img: "assets/case_study_6.png",
+                list: [
+                    "Scaled multichannel publishing speed by 4x",
+                    "Perfect consistency across custom brand voices",
+                    "Zero manual drafting overhead for social marketing",
+                    "Automated visual template generation options"
+                ]
+            },
+            7: {
+                title: "Business Process Automation",
+                tag: "Process Automation",
+                result: "₹12L+ Annual Savings",
+                desc: "Streamlined manual back-office tasks, invoices tracking, and weekly reporting schedules into a unified hub. The automated data flows eliminate entry errors and consolidate expensive software stacks.",
+                img: "assets/case_study_7.png",
+                list: [
+                    "Eliminated invoicing accounting errors completely",
+                    "Consolidated SaaS licenses to save software budget",
+                    "Real-time management dashboards for executives",
+                    "Auto-reconciliation of payments against bank fees"
+                ]
+            }
+        };
+
+        const modal = document.getElementById('caseModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTag = document.getElementById('modalTag');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalResult = document.getElementById('modalResult');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalList = document.getElementById('modalList');
+
+        function openCaseModal(id) {
+            const data = caseStudiesData[id];
+            if (!data) return;
+
+            modalImage.src = data.img;
+            modalImage.alt = data.title;
+            modalTag.textContent = data.tag;
+            modalTitle.textContent = data.title;
+            modalResult.textContent = data.result;
+            modalDesc.textContent = data.desc;
+
+            // Generate list items
+            modalList.innerHTML = '';
+            data.list.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i data-feather="check-circle"></i> <span>${item}</span>`;
+                modalList.appendChild(li);
+            });
+
+            modal.classList.add('active');
+            feather.replace(); // Refresh icons inside modal
+            document.body.style.overflow = 'hidden'; // Lock background scroll
+        }
+
+        function closeCaseModal(e) {
+            if (e && e.target !== modal && !e.target.closest('.modal-close')) return;
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Unlock background scroll
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeCaseModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

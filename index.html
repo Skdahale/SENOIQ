@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senoiq - Insight Into Innovation </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Feather Icons for lightweight SVGs -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="case-studies.html" class="nav-link">Case Studies</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <a href="#contact" class="btn btn-primary">Book a Call <i data-feather="arrow-right"></i></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">The Future of Workflows <br><span class="text-orange">Starts Here.</span></h1>
+                <p class="hero-description">
+                    We design intelligent AI systems, workflow automation, and business solutions that help companies
+                    save time, reduce costs, and scale faster.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Book Strategy Call <i data-feather="arrow-right"></i></a>
+                    <a href="case-studies.html" class="btn btn-outline">More Case Studies</a>
+                </div>
+            </div>
+            <div class="hero-diagram animated-hero-diagram">
+                <svg class="connection-lines" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+                    <!-- Lines connecting center (200, 200) to nodes -->
+                    <path d="M 200 102 L 200 155" class="flow-line" /> <!-- Top (AI Agents) -->
+                    <path d="M 70 172 L 70 185 L 155 185" class="flow-line" /> <!-- Left (Workflow) -->
+                    <path d="M 330 172 L 330 185 L 245 185" class="flow-line" /> <!-- Right (Automation) -->
+                    <path d="M 120 268 L 120 215 L 155 215" class="flow-line" /> <!-- Bottom Left (Integration) -->
+                    <path d="M 280 268 L 280 215 L 245 215" class="flow-line" />
+                    <!-- Bottom Right (Appointment Booking) -->
+                </svg>
+
+                <div class="diagram-center animated-center">
+                    <div class="glass-card center-card">
+                        <img src="assets/main_logo.svg" alt="Senoiq Logo" class="center-logo">
+                    </div>
+                </div>
+
+                <div class="diagram-node-wrapper top-node-pos">
+                    <div class="floating-node" style="--dur: 4.5s; --del: 0s;">
+                        <div class="glass-card small-card">
+                            <div class="node-icon"><i data-feather="cpu"></i></div>
+                            <span class="node-label">AI Agents</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="diagram-node-wrapper left-node-pos">
+                    <div class="floating-node" style="--dur: 3.2s; --del: 0.5s;">
+                        <div class="glass-card small-card">
+                            <div class="node-icon"><i data-feather="git-branch"></i></div>
+                            <span class="node-label">Workflow</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="diagram-node-wrapper right-node-pos">
+                    <div class="floating-node" style="--dur: 3.8s; --del: 1.2s;">
+                        <div class="glass-card small-card">
+                            <div class="node-icon"><i data-feather="zap"></i></div>
+                            <span class="node-label">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="diagram-node-wrapper bottom-left-node-pos">
+                    <div class="floating-node" style="--dur: 4.1s; --del: 0.8s;">
+                        <div class="glass-card small-card">
+                            <div class="node-icon"><i data-feather="layers"></i></div>
+                            <span class="node-label">Integration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="diagram-node-wrapper bottom-right-node-pos">
+                    <div class="floating-node" style="--dur: 3.5s; --del: 1.5s;">
+                        <div class="glass-card small-card">
+                            <div class="node-icon"><i data-feather="calendar"></i></div>
+                            <span class="node-label">Appointment Booking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-banner">
+        <div class="container features-container">
+            <div class="feature-item">
+                <h3 class="feature-title">AI-Powered Solutions</h3>
+                <p class="feature-desc">Custom automation built for modern business</p>
+            </div>
+            <div class="feature-item">
+                <h3 class="feature-title">Workflow Automation</h3>
+                <p class="feature-desc">Automate repetitive work and improve efficiency</p>
+            </div>
+            <div class="feature-item">
+                <h3 class="feature-title">Seamless Integrations</h3>
+                <p class="feature-desc">Connect your tools, data, and teams</p>
+            </div>
+            <div class="feature-item">
+                <h3 class="feature-title">Growth Focused</h3>
+                <p class="feature-desc">Solutions designed to scale with your business</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-header">
+                <div class="section-label">
+                    <span class="dot"></span> Our Impact in Numbers
+                </div>
+                <h2 class="section-title">Measurable Results <span class="text-orange">That Matter</span></h2>
+                <p class="stats-subtitle">Proven workflows and intelligent automation systems driving efficiency and
+                    growth.</p>
+            </div>
+
+            <div class="stats-grid">
+                <!-- Stat 1: 500+ Hours Saved Monthly -->
+                <div class="glow-card" style="--glow-color: rgba(201, 107, 73, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="clock"></i></div>
+                        <h3 class="stat-value">500+</h3>
+                        <p class="stat-desc">Hours Saved Monthly</p>
+                    </div>
+                </div>
+                <!-- Stat 2: 85% Faster Workflows -->
+                <div class="glow-card" style="--glow-color: rgba(38, 90, 83, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="zap"></i></div>
+                        <h3 class="stat-value">85%</h3>
+                        <p class="stat-desc">Faster Workflows</p>
+                    </div>
+                </div>
+                <!-- Stat 3: 42% Higher Lead Conversion -->
+                <div class="glow-card" style="--glow-color: rgba(45, 156, 219, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="trending-up"></i></div>
+                        <h3 class="stat-value">42%</h3>
+                        <p class="stat-desc">Higher Lead Conversion</p>
+                    </div>
+                </div>
+                <!-- Stat 4: 80% Automated Customer Support -->
+                <div class="glow-card" style="--glow-color: rgba(168, 85, 247, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="message-square"></i></div>
+                        <h3 class="stat-value">80%</h3>
+                        <p class="stat-desc">Automated Customer Support</p>
+                    </div>
+                </div>
+                <!-- Stat 5: 98% Reporting Accuracy -->
+                <div class="glow-card" style="--glow-color: rgba(33, 150, 83, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="check-square"></i></div>
+                        <h3 class="stat-value">98%</h3>
+                        <p class="stat-desc">Reporting Accuracy</p>
+                    </div>
+                </div>
+                <!-- Stat 6: ₹12L+ Annual Cost Savings -->
+                <div class="glow-card" style="--glow-color: rgba(201, 107, 73, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="credit-card"></i></div>
+                        <h3 class="stat-value">₹12L+</h3>
+                        <p class="stat-desc">Annual Cost Savings</p>
+                    </div>
+                </div>
+                <!-- Stat 7: 3X Faster Response Times -->
+                <div class="glow-card" style="--glow-color: rgba(38, 90, 83, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="activity"></i></div>
+                        <h3 class="stat-value">3X</h3>
+                        <p class="stat-desc">Faster Response Times</p>
+                    </div>
+                </div>
+                <!-- Stat 8: 90% Reduction in Manual Processes -->
+                <div class="glow-card" style="--glow-color: rgba(33, 150, 83, 0.15);">
+                    <div class="glow-card-inner">
+                        <div class="stat-icon-wrap"><i data-feather="refresh-cw"></i></div>
+                        <h3 class="stat-value">90%</h3>
+                        <p class="stat-desc">Reduction in Manual Processes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <div class="section-label">
+                    <span class="dot"></span> About SENOIQ
+                </div>
+                <h2 class="section-title">Insight Into <span class="text-orange">Innovation</span></h2>
+                <div class="about-text">
+                    <p><strong>SENOIQ</strong> was founded by four specialists combining development, marketing,
+                        automation, and growth strategy to help businesses build intelligent systems that actually work.
+                    </p>
+                    <p>Our mission is to help organizations embrace automation with confidence. Through AI-powered
+                        systems and modern workflows, we enable teams to focus on meaningful work while technology
+                        handles the repetitive tasks.</p>
+                    <p>From AI automation to workflow optimization, every solution we build is designed around real
+                        business outcomes.</p>
+                </div>
+            </div>
+            <div class="about-diagram animated-about-diagram">
+                <div class="circular-wrapper">
+                    <!-- Outer Dashed Ring -->
+                    <div class="ring outer-ring"></div>
+
+                    <!-- Inner Solid Ring -->
+                    <div class="ring inner-ring"></div>
+
+                    <!-- Data Nodes Ring -->
+                    <div class="ring nodes-ring">
+                        <div class="data-node node-1" style="--angle: 0deg;">
+                            <div class="circle-label-orbit">Transparency</div>
+                        </div>
+                        <div class="data-node node-2" style="--angle: 90deg;">
+                            <div class="circle-label-orbit">Growth</div>
+                        </div>
+                        <div class="data-node node-3" style="--angle: 180deg;">
+                            <div class="circle-label-orbit">Innovation</div>
+                        </div>
+                        <div class="data-node node-4" style="--angle: 270deg;">
+                            <div class="circle-label-orbit">Reliability</div>
+                        </div>
+                    </div>
+
+                    <!-- Center Card -->
+                    <div class="about-center-card">
+                        <div class="about-glow-backdrop"></div>
+
+                        <img src="assets/main_logo.svg" alt="Senoiq Logo" class="about-center-logo" />
+
+                        <h4 class="about-logo-text">Senoiq</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container services-container">
+            <div class="section-label">
+                <span class="dot"></span> Our Services
+            </div>
+            <h2 class="section-title">Services Built for <span class="text-orange">Real Results</span></h2>
+
+            <div class="services-grid spotlight-container" id="glow-container">
+                <div class="glow-card" style="--glow-color: rgba(230, 126, 78, 0.25);">
+                    <div class="glow-card-inner">
+                        <div class="service-icon"><i data-lucide="bot"></i></div>
+                        <h3 class="service-title">AI Automation</h3>
+                        <p class="service-desc">Automate repetitive tasks, approvals, reporting and internal workflows
+                            to save time and reduce costs.</p>
+                    </div>
+                </div>
+                <div class="glow-card" style="--glow-color: rgba(59, 130, 246, 0.25);">
+                    <div class="glow-card-inner">
+                        <div class="service-icon"><i data-lucide="message-square"></i></div>
+                        <h3 class="service-title">AI Chatbot</h3>
+                        <p class="service-desc">Deploy intelligent chatbots that answer questions, capture leads and
+                            support customers 24/7.</p>
+                    </div>
+                </div>
+                <div class="glow-card" style="--glow-color: rgba(168, 85, 247, 0.25);">
+                    <div class="glow-card-inner">
+                        <div class="service-icon"><i data-lucide="brain"></i></div>
+                        <h3 class="service-title">AI Agents</h3>
+                        <p class="service-desc">AI-powered agents that handle operations, customer interactions and
+                            business processes automatically.</p>
+                    </div>
+                </div>
+                <div class="glow-card" style="--glow-color: rgba(16, 185, 129, 0.25);">
+                    <div class="glow-card-inner">
+                        <div class="service-icon"><i data-lucide="workflow"></i></div>
+                        <h3 class="service-title">Workflow Automation</h3>
+                        <p class="service-desc">Connect your tools and automate processes across your entire business
+                            ecosystem.</p>
+                    </div>
+                </div>
+                <div class="glow-card" style="--glow-color: rgba(14, 165, 233, 0.25);">
+                    <div class="glow-card-inner">
+                        <div class="service-icon"><i data-lucide="calendar"></i></div>
+                        <h3 class="service-title">Appointment Booking</h3>
+                        <p class="service-desc">Automate scheduling, confirmations, reminders and follow-ups to reduce
+                            no-shows.</p>
+                    </div>
+                </div>
+                <div class="glow-card" style="--glow-color: rgba(230, 126, 78, 0.25);">
+                    <div class="glow-card-inner">
+                        <div class="service-icon"><i data-lucide="trending-up"></i></div>
+                        <h3 class="service-title">AI Lead Generation</h3>
+                        <p class="service-desc">Capture, qualify and nurture leads automatically using AI-driven
+                            workflows.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-cta">
+                <a href="services.html" class="btn btn-secondary">Explore All Services <i
+                        data-feather="arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-studies" class="case-studies">
+        <div class="container case-studies-container">
+            <div class="case-studies-header">
+                <div>
+                    <div class="section-label">
+                        <span class="dot"></span> Case Studies
+                    </div>
+                    <h2 class="section-title">Results That <span class="text-orange">Matters</span></h2>
+                </div>
+                <a href="case-studies.html" class="view-all">View All <i data-feather="arrow-right"></i></a>
+            </div>
+
+            <div class="case-studies-grid">
+                <a href="it-process-automation.html" class="case-card">
+                    <div class="case-image-wrap">
+                        <div class="case-tag"><span class="dot green"></span> CASE STUDY</div>
+                        <img src="assets/case_study_1.png" alt="IT Process Automation" class="case-image">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="case-title">IT Process Automation</h3>
+                        <p class="case-stat">120+ Hours Saved Every Month</p>
+                        <ul class="case-list">
+                            <li><i data-feather="check-circle"></i> 85% reduction in manual work</li>
+                            <li><i data-feather="check-circle"></i> 100% reporting accuracy</li>
+                            <li><i data-feather="check-circle"></i> Faster leadership decisions</li>
+                        </ul>
+                        <span class="view-study-btn">View Case Study <i data-feather="chevron-right"></i></span>
+                    </div>
+                </a>
+                <a href="ai-powered-nlp-chatbot.html" class="case-card">
+                    <div class="case-image-wrap">
+                        <div class="case-tag"><span class="dot blue"></span> CASE STUDY</div>
+                        <img src="assets/case_study_2.png" alt="AI-Powered NLP Chatbot" class="case-image">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="case-title">AI-Powered NLP Chatbot</h3>
+                        <p class="case-stat">50% Faster Customer Responses</p>
+                        <ul class="case-list">
+                            <li><i data-feather="check-circle"></i> 100% query automation rate</li>
+                            <li><i data-feather="check-circle"></i> 70% reduction in support workload</li>
+                            <li><i data-feather="check-circle"></i> 24/7 customer support</li>
+                        </ul>
+                        <span class="view-study-btn">View Case Study <i data-feather="chevron-right"></i></span>
+                    </div>
+                </a>
+                <a href="ai-answer-evaluation-platform.html" class="case-card">
+                    <div class="case-image-wrap">
+                        <div class="case-tag"><span class="dot blue"></span> CASE STUDY</div>
+                        <img src="assets/case_study_3.png" alt="AI Answer Evaluation Platform" class="case-image">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="case-title">AI Answer Evaluation Platform</h3>
+                        <p class="case-stat">90% Faster Evaluation Process</p>
+                        <ul class="case-list">
+                            <li><i data-feather="check-circle"></i> 90% reduction in manual evaluation effort</li>
+                            <li><i data-feather="check-circle"></i> 100% fair result generation</li>
+                            <li><i data-feather="check-circle"></i> Multi-lingual assessment support</li>
+                        </ul>
+                        <span class="view-study-btn">View Case Study <i data-feather="chevron-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container cta-container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to <span class="text-orange">Automate</span> Your Business?</h2>
+                <p class="cta-desc">We design intelligent AI systems and workflow automation that help companies save
+                    time, reduce costs, and scale faster.</p>
+                <a href="mailto:senoiq.ai@gmail.com" target="_blank" class="cta-email">senoiq.ai@gmail.com <i
+                        data-feather="arrow-up-right"></i></a>
+            </div>
+            <div class="cta-image-wrapper">
+                <img src="assets/cta_illustration.svg" alt="Automation Dashboard" class="cta-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <div class="section-label">
+                    <span class="dot"></span> Contact
+                </div>
+                <h2 class="section-title">Let's Build Something<br><span class="text-orange">Intelligent
+                        Together.</span></h2>
+                <p class="contact-desc">Whether you're building local smart workflows, implementing solid bots, or
+                    scaling your business operations, we're here to help turn your ideas into scalable systems.</p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-feather="mail"></i></div>
+                        <div>
+                            <div class="contact-label">Email Us</div>
+                            <a href="mailto:senoiq.ai@gmail.com" target="_blank"
+                                class="contact-value">senoiq.ai@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-feather="map-pin"></i></div>
+                        <div>
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value text-dark">Nashik, Maharashtra</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-feather="link-2"></i></div>
+                        <div>
+                            <div class="contact-label">Let's connect</div>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/senoiq.ai/"><i data-feather="instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/senoiq-ai-a59739417/"><i
+                                        data-feather="linkedin"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61590957166415&rdid=LtUJjN8qajWeyWb3&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14bvLGg4zK7%2F#"
+                                    target="_blank"><i data-feather="facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form action="https://formspree.io/f/mojojvep" method="POST" class="contact-form">
+                    <h3 class="form-title">Send Us a Message</h3>
+                    <p class="form-desc">Fill out the form and our team will get back to you shortly.</p>
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name (Optional)</label>
+                        <input type="text" id="company" name="company" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Let's Talk <i
+                            data-feather="arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets\web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                    </div>
+                </a>
+
+                <p class="footer-desc">We specialize in modern workflow automation and systems consultancy firm. We
+                    design, build, and support manual workflow to optimized and automated operations.</p>
+                <div class="social-links dark">
+                    <a href="https://www.instagram.com/senoiq.ai/" target="_blank"><i data-feather="instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/senoiq-ai-a59739417/" target="_blank"><i
+                            data-feather="linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61590957166415&rdid=LtUJjN8qajWeyWb3&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14bvLGg4zK7%2F#"
+                        target="_blank"><i data-feather="facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <a href="#">Home</a>
+                <a href="#services">Services</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="#about">About</a>
+                <a href="#">Blogs</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Services</h4>
+                <a href="#">AI Automation</a>
+                <a href="#">AI Chatbot</a>
+                <a href="#">AI Agents</a>
+                <a href="#">Appointment Booking</a>
+                <a href="#">Workflow Automation</a>
+                <a href="#">AI Lead Generation</a>
+            </div>
+            <div class="footer-inquiries">
+                <h4 class="footer-title">Inquiries</h4>
+                <a href="mailto:senoiq.ai@gmail.com" target="_blank">senoiq.ai@gmail.com</a>
+                <p>Nashik, Maharashtra - 422101</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SENOIQ. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        feather.replace();
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

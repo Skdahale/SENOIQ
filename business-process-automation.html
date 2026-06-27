@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Process Automation Case Study | SENOIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Feather Icons for lightweight SVGs -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* Page-specific styling for Case Study Details */
+        :root {
+            --bg-color: #F8F5F2;
+            /* Cream/Beige Background */
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            --primary-orange: #C96B49;
+            --primary-green: #255851;
+            --text-dark: #1a1a1a;
+            --text-light: #5a5a5a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+        }
+
+        .active {
+            color: var(--primary-orange) !important;
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 4px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-section {
+            padding: 40px 0 10px 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-orange);
+        }
+
+        .breadcrumb-separator {
+            color: #d1c8be;
+        }
+
+        .breadcrumb-current {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .details-hero {
+            padding: 40px 0 60px 0;
+            background: radial-gradient(circle at top right, rgba(201, 107, 73, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at bottom left, rgba(37, 88, 81, 0.04) 0%, transparent 45%);
+        }
+
+        .hero-meta {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background-color: rgba(201, 107, 73, 0.1);
+            color: var(--primary-orange);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-industry {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-industry::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #d1c8be;
+            border-radius: 50%;
+        }
+
+        .details-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+            max-width: 900px;
+        }
+
+        .details-hero .subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 48px;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        /* Hero KPI Grid */
+        .hero-kpis {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .kpi-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: var(--glass-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            border-color: rgba(37, 88, 81, 0.2);
+        }
+
+        .kpi-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .kpi-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.3;
+        }
+
+        /* Sections General */
+        .details-section {
+            padding: 80px 0;
+        }
+
+        .section-label-details {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(37, 88, 81, 0.08);
+            color: var(--primary-green);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-label-details .dot {
+            background-color: var(--primary-green);
+        }
+
+        .details-section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--text-dark);
+        }
+
+        /* Challenge Card */
+        .challenge-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .challenge-intro {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .challenge-list-container {
+            border-left: 3px solid rgba(201, 107, 73, 0.3);
+            padding-left: 32px;
+        }
+
+        .challenge-list-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .challenge-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .challenge-items li {
+            position: relative;
+            padding-left: 24px;
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .challenge-items li::before {
+            content: "•";
+            color: var(--primary-orange);
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Solution Layout (Flowchart replacing architecture image) */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        /* Premium CSS Flowchart */
+        .workflow-flowchart-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .workflow-header {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .workflow-header i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
+            cursor: default;
+        }
+
+        .workflow-step:hover {
+            transform: translateX(8px);
+            border-color: rgba(201, 107, 73, 0.4);
+            background: #FFFFFF;
+        }
+
+        .workflow-step-badge {
+            background: rgba(201, 107, 73, 0.1);
+            color: var(--primary-orange);
+            font-size: 11px;
+            font-weight: 700;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .workflow-step-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(37, 88, 81, 0.08);
+            color: var(--primary-green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .workflow-step:hover .workflow-step-icon {
+            background: var(--primary-green);
+            color: #FFFFFF;
+        }
+
+        .workflow-step-icon i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .workflow-step-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .workflow-step-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .workflow-step-desc {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Flow Connector Lines */
+        .workflow-connector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 12px;
+            margin: -4px 0 -4px 30px;
+            color: rgba(201, 107, 73, 0.4);
+            align-self: flex-start;
+        }
+
+        .workflow-connector i {
+            width: 16px;
+            height: 16px;
+            animation: flowDown 2s infinite linear;
+        }
+
+        @keyframes flowDown {
+            0% {
+                transform: translateY(-4px);
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(4px);
+                opacity: 0.3;
+            }
+        }
+
+        .solution-details {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .solution-intro {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .solution-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .solution-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .solution-checklist li i {
+            color: #219653;
+            /* Green check */
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Tech Stack list */
+        .tech-stack-container {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 24px;
+        }
+
+        .tech-stack-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: rgba(37, 88, 81, 0.06);
+            color: var(--primary-green);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        /* Key Features Grid */
+        .features-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-detail-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-detail-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 88, 81, 0.2);
+        }
+
+        .feature-detail-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(37, 88, 81, 0.08);
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-detail-icon i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .feature-detail-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .feature-detail-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Results Comparison Table */
+        .results-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            overflow-x: auto;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .results-table th {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            font-weight: 600;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .results-table td {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 16px;
+        }
+
+        .results-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .results-metric {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .results-before {
+            color: var(--text-light);
+        }
+
+        .results-after {
+            font-weight: 700;
+            color: var(--primary-green);
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(33, 150, 83, 0.08);
+            padding: 6px 14px;
+            border-radius: 30px;
+            animation: pulseGlowTable 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlowTable {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(33, 150, 83, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(33, 150, 83, 0);
+            }
+        }
+
+        /* Business Impact */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .impact-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px 24px;
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(33, 150, 83, 0.3);
+        }
+
+        .impact-icon-wrap {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(33, 150, 83, 0.1);
+            color: #219653;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .impact-icon-wrap i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .impact-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        /* Next Case Banner */
+        .next-case-section {
+            padding: 60px 0 100px 0;
+        }
+
+        .next-case-card {
+            background: var(--primary-green);
+            border-radius: 24px;
+            padding: 48px;
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(15, 92, 89, 0.15);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .next-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: radial-gradient(circle at right center, rgba(201, 107, 73, 0.25) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .next-case-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .next-case-meta {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .next-case-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .next-case-stat {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+        }
+
+        .next-case-btn {
+            background: var(--white);
+            color: var(--primary-green);
+            border: none;
+            padding: 16px 28px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .next-case-btn:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+            box-shadow: 0 8px 24px rgba(201, 107, 73, 0.25);
+        }
+
+        /* CTA */
+        .cta-banner-details {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1e4540 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-banner-details .container {
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-title-details {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-desc-details {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons-details {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline-white:hover {
+            background-color: var(--white);
+            color: var(--primary-green);
+            border-color: var(--white);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .details-hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-kpis {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .challenge-card {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 32px;
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .features-detail-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-kpis {
+                grid-template-columns: 1fr;
+            }
+
+            .features-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .next-case-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+                padding: 32px;
+            }
+
+            .next-case-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-buttons-details {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-buttons-details .btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="case-studies.html" class="nav-link active">Case Studies</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn-primary">Book a Call <i data-feather="arrow-right"></i></a>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator"><i data-feather="chevron-right"
+                        style="width:14px;height:14px;"></i></span>
+                <a href="case-studies.html">Case Studies</a>
+                <span class="breadcrumb-separator"><i data-feather="chevron-right"
+                        style="width:14px;height:14px;"></i></span>
+                <span class="breadcrumb-current">Business Process Automation</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="details-hero">
+        <div class="container">
+            <div class="hero-meta">
+                <span class="hero-badge">Case Study 07</span>
+                <span class="hero-industry">Manufacturing & Operations | Workflow Automation | ERP Integration</span>
+            </div>
+            <h1>Business Process Automation Saves Lakhs Annually</h1>
+            <p class="subtitle">Streamlining back-office workflows, purchase requests, approvals, and inventory tracking
+                for operations teams.</p>
+
+            <div class="hero-kpis">
+                <div class="kpi-card">
+                    <span class="kpi-number">2 Hours</span>
+                    <span class="kpi-label">Approval Time</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-number">-90%</span>
+                    <span class="kpi-label">Process Errors</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-number">20%</span>
+                    <span class="kpi-label">Manual Tasks</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-number">-30%</span>
+                    <span class="kpi-label">Operational Cost</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge -->
+    <section class="details-section" style="padding-top:40px;">
+        <div class="container">
+            <div class="challenge-card">
+                <div>
+                    <div class="section-label-details">
+                        <span class="dot"></span> The Challenge
+                    </div>
+                    <h2 class="details-section-title" style="margin-bottom:20px;">Manual Back-Office Bottlenecks &
+                        Operational Delays</h2>
+                    <p class="challenge-intro">The operations team was manually handling core workflows, including
+                        purchase requests, multi-tier approvals, inventory updates, vendor communications, and compiling
+                        weekly performance reports. The lack of standard automated systems made operations slow and
+                        highly error-prone.</p>
+                </div>
+                <div class="challenge-list-container">
+                    <h3 class="challenge-list-title">Key Roadblocks:</h3>
+                    <ul class="challenge-items">
+                        <li>Manual purchase requests submitted via slow spreadsheets & email chains</li>
+                        <li>Management approval delays (averaging 3 days) due to manual notifications</li>
+                        <li>Delayed inventory updates causing critical stock inconsistencies</li>
+                        <li>Time-consuming and manual back-and-forth vendor communication</li>
+                        <li>Manually compiling daily & weekly operations performance reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="details-section" style="background:#FFF;">
+        <div class="container">
+            <div class="solution-grid">
+                <!-- Custom CSS Flowchart representing operations journey workflow -->
+                <div class="workflow-flowchart-card">
+                    <div class="workflow-header">
+                        <i data-feather="git-branch"></i> Automation & Request Flow
+                    </div>
+                    <div class="workflow-steps">
+                        <!-- Step 1 -->
+                        <div class="workflow-step">
+                            <div class="workflow-step-badge">1</div>
+                            <div class="workflow-step-icon"><i data-feather="file-text"></i></div>
+                            <div class="workflow-step-details">
+                                <div class="workflow-step-title">Request Submission</div>
+                                <div class="workflow-step-desc">Purchase request is submitted through a simple digital
+                                    form</div>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="workflow-connector"><i data-feather="chevron-down"></i></div>
+
+                        <!-- Step 2 -->
+                        <div class="workflow-step">
+                            <div class="workflow-step-badge">2</div>
+                            <div class="workflow-step-icon"><i data-feather="users"></i></div>
+                            <div class="workflow-step-details">
+                                <div class="workflow-step-title">Approval Workflow</div>
+                                <div class="workflow-step-desc">Routed automatically to correct managers with instant
+                                    alerts</div>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="workflow-connector"><i data-feather="chevron-down"></i></div>
+
+                        <!-- Step 3 -->
+                        <div class="workflow-step">
+                            <div class="workflow-step-badge">3</div>
+                            <div class="workflow-step-icon"><i data-feather="shield"></i></div>
+                            <div class="workflow-step-details">
+                                <div class="workflow-step-title">System Validation</div>
+                                <div class="workflow-step-desc">Budget compliance and ERP database validity checks run
+                                    instantly</div>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="workflow-connector"><i data-feather="chevron-down"></i></div>
+
+                        <!-- Step 4 -->
+                        <div class="workflow-step">
+                            <div class="workflow-step-badge">4</div>
+                            <div class="workflow-step-icon"><i data-feather="archive"></i></div>
+                            <div class="workflow-step-details">
+                                <div class="workflow-step-title">Inventory Update</div>
+                                <div class="workflow-step-desc">Stock levels adjust automatically with reorder triggers
+                                    sent to vendors</div>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="workflow-connector"><i data-feather="chevron-down"></i></div>
+
+                        <!-- Step 5 -->
+                        <div class="workflow-step">
+                            <div class="workflow-step-badge">5</div>
+                            <div class="workflow-step-icon"><i data-feather="trello"></i></div>
+                            <div class="workflow-step-details">
+                                <div class="workflow-step-title">Management Dashboard</div>
+                                <div class="workflow-step-desc">Real-time status tracking and automated daily report
+                                    generation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-details">
+                    <div>
+                        <div class="section-label-details">
+                            <span class="dot"></span> The Solution
+                        </div>
+                        <h2 class="details-section-title" style="margin-bottom:20px;">Centralized Operations Automation
+                            Hub</h2>
+                        <p class="solution-intro">We built workflow automation, an approval management system, automated
+                            notifications, dashboard reporting, and ERP integrations. This system eliminates human
+                            error, cuts down processing times, and connects siloed departments.</p>
+                    </div>
+                    <ul class="solution-checklist">
+                        <li><i data-feather="check-circle"></i> <span><strong>Workflow Automation:</strong> Seamless
+                                routing of purchase requests and tasks.</span></li>
+                        <li><i data-feather="check-circle"></i> <span><strong>Approval System:</strong> Multi-tier
+                                mobile approval queues with active alerts.</span></li>
+                        <li><i data-feather="check-circle"></i> <span><strong>Automated Notifications:</strong> Direct
+                                Slack/Email alerts to managers and vendors.</span></li>
+                        <li><i data-feather="check-circle"></i> <span><strong>Dashboard Reporting:</strong> Real-time
+                                visual logs and daily reports auto-generation.</span></li>
+                        <li><i data-feather="check-circle"></i> <span><strong>ERP Integrations:</strong> Automatic
+                                synchronization with centralized database systems.</span></li>
+                    </ul>
+
+                    <div class="tech-stack-container">
+                        <h4 class="tech-stack-title">Technology Stack</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Workflow Automation Engine</span>
+                            <span class="tech-tag">Approval Management Hub</span>
+                            <span class="tech-tag">ERP Integration API</span>
+                            <span class="tech-tag">Automated Alerts System</span>
+                            <span class="tech-tag">Real-Time BI Dashboard</span>
+                            <span class="tech-tag">Daily Report Dispatcher</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Grid -->
+    <section class="details-section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:60px;">
+                <div class="section-label-details">
+                    <span class="dot"></span> System Features
+                </div>
+                <h2 class="details-section-title">Key Automation Features</h2>
+            </div>
+
+            <div class="features-detail-grid">
+                <!-- feature 1 -->
+                <div class="feature-detail-card">
+                    <div class="feature-detail-icon"><i data-feather="git-pull-request"></i></div>
+                    <h3 class="feature-detail-title">Multi-Stage Approvals</h3>
+                    <p class="feature-detail-desc">Auto-routes purchase requests to correct management levels based on
+                        budget and department tiers.</p>
+                </div>
+                <!-- feature 2 -->
+                <div class="feature-detail-card">
+                    <div class="feature-detail-icon"><i data-feather="refresh-cw"></i></div>
+                    <h3 class="feature-detail-title">ERP Synchronization</h3>
+                    <p class="feature-detail-desc">Updates stock records, ledger balances, and procurement orders
+                        instantly inside the company ERP.</p>
+                </div>
+                <!-- feature 3 -->
+                <div class="feature-detail-card">
+                    <div class="feature-detail-icon"><i data-feather="bell"></i></div>
+                    <h3 class="feature-detail-title">Automated Alerts</h3>
+                    <p class="feature-detail-desc">Sends immediate SMS, email, or Slack notifications to managers when
+                        approval actions are required.</p>
+                </div>
+                <!-- feature 4 -->
+                <div class="feature-detail-card">
+                    <div class="feature-detail-icon"><i data-feather="bar-chart-2"></i></div>
+                    <h3 class="feature-detail-title">Interactive Dashboard</h3>
+                    <p class="feature-detail-desc">Provides a visual log of all request queues, processing speeds,
+                        inventory updates, and vendor logs.</p>
+                </div>
+                <!-- feature 5 -->
+                <div class="feature-detail-card">
+                    <div class="feature-detail-icon"><i data-feather="check-square"></i></div>
+                    <h3 class="feature-detail-title">Budget Validation</h3>
+                    <p class="feature-detail-desc">System automatically validates request pricing against monthly
+                        allocations before sending to managers.</p>
+                </div>
+                <!-- feature 6 -->
+                <div class="feature-detail-card">
+                    <div class="feature-detail-icon"><i data-feather="mail"></i></div>
+                    <h3 class="feature-detail-title">Scheduled Reports</h3>
+                    <p class="feature-detail-desc">Compiles operational analytics and emails summaries to leadership
+                        daily, eliminating manual entry chores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Table -->
+    <section class="details-section" style="background:#FFF;">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:60px;">
+                <div class="section-label-details">
+                    <span class="dot"></span> Metrics
+                </div>
+                <h2 class="details-section-title">Before vs After AI & Automation System</h2>
+            </div>
+
+            <div class="results-card">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Performance Metric</th>
+                            <th>Before Senoiq</th>
+                            <th>After Automated System</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="results-metric">Approval Time</td>
+                            <td class="results-before">3 Days</td>
+                            <td><span class="results-after">2 Hours (97% Faster)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="results-metric">Process Errors</td>
+                            <td class="results-before">High</td>
+                            <td><span class="results-after">Reduced by 90%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="results-metric">Manual Tasks</td>
+                            <td class="results-before">100%</td>
+                            <td><span class="results-after">20% (80% Automated)</span></td>
+                        </tr>
+                        <tr>
+                            <td class="results-metric">Operational Cost</td>
+                            <td class="results-before">Baseline</td>
+                            <td><span class="results-after">-30% (Lakhs Saved)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Impact -->
+    <section class="details-section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:60px;">
+                <div class="section-label-details">
+                    <span class="dot"></span> Outcomes
+                </div>
+                <h2 class="details-section-title">Business Impact</h2>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon-wrap"><i data-feather="credit-card"></i></div>
+                    <span class="impact-text">₹12,00,000 Annual Savings</span>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon-wrap"><i data-feather="shield"></i></div>
+                    <span class="impact-text">90% Error Reduction</span>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon-wrap"><i data-feather="zap"></i></div>
+                    <span class="impact-text">Faster Operations</span>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon-wrap"><i data-feather="eye"></i></div>
+                    <span class="impact-text">Real-Time Visibility</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Case Study Card -->
+    <section class="container next-case-section">
+        <div class="next-case-card">
+            <div>
+                <span class="next-case-meta">Next Case Study</span>
+                <h3 class="next-case-title">IT Process Automation</h3>
+                <p class="next-case-stat">120+ Hours Saved Every Month</p>
+            </div>
+            <a href="it-process-automation.html" class="next-case-btn">View Next Case Study <i
+                    data-feather="arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner-details">
+        <div class="container">
+            <h2 class="cta-title-details">Ready To Automate Your Business?</h2>
+            <p class="cta-desc-details">Let's build intelligent systems that save time, reduce costs and help your
+                business grow.</p>
+            <div class="cta-buttons-details">
+                <a href="index.html#contact" class="btn btn-primary">Book Strategy Call <i
+                        data-feather="arrow-right"></i></a>
+                <a href="index.html#contact" class="btn btn-outline btn-outline-white">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                    </div>
+                </a>
+
+                <p class="footer-desc">We specialize in modern workflow automation and systems consultancy firm. We
+                    design, build, and support manual workflow to optimized and automated operations.</p>
+                <div class="social-links dark">
+                    <a href="https://www.instagram.com/senoiq.ai/" target="_blank"><i data-feather="instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/senoiq-ai-a59739417/" target="_blank"><i data-feather="linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61590957166415&rdid=LtUJjN8qajWeyWb3&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14bvLGg4zK7%2F#" target="_blank"><i data-feather="facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="index.html#about">About</a>
+                <a href="#">Blogs</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Services</h4>
+                <a href="services.html">AI Automation</a>
+                <a href="services.html">AI Chatbot</a>
+                <a href="services.html">AI Agents</a>
+                <a href="services.html">Appointment Booking</a>
+                <a href="services.html">Workflow Automation</a>
+                <a href="services.html">AI Lead Generation</a>
+            </div>
+            <div class="footer-inquiries">
+                <h4 class="footer-title">Inquiries</h4>
+                <a href="mailto:senoiq.ai@gmail.com">senoiq.ai@gmail.com</a>
+                <p>Nashik, Maharashtra - 422101</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SENOIQ. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Initialize feather and lucide
+        feather.replace();
+        lucide.createIcons();
+
+        // Spotlight Glow for cards
+        const kpiCards = document.querySelectorAll('.kpi-card, .feature-detail-card, .impact-card, .workflow-step');
+        document.addEventListener('mousemove', (e) => {
+            kpiCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Scroll fade in animations
+        const detailObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const detailObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+
+                    setTimeout(() => {
+                        entry.target.style.transition = '';
+                        entry.target.style.transitionDelay = '0s';
+                    }, 1000);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, detailObserverOptions);
+
+        const detailAnimateElements = document.querySelectorAll('.kpi-card, .challenge-card, .workflow-flowchart-card, .solution-details, .feature-detail-card, .results-card, .impact-card, .next-case-card');
+        detailAnimateElements.forEach((el, index) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+
+            if (el.classList.contains('kpi-card')) {
+                el.style.transitionDelay = `${index * 0.08}s`;
+            } else if (el.classList.contains('impact-card')) {
+                el.style.transitionDelay = `${(index % 4) * 0.08}s`;
+            } else if (el.classList.contains('feature-detail-card')) {
+                el.style.transitionDelay = `${(index % 3) * 0.08}s`;
+            }
+
+            detailObserver.observe(el);
+        });
+    </script>
+</body>
+
+</html>

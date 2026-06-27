@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENOIQ - Premium AI Automation & Workflow Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Feather Icons for lightweight SVGs -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* Page specific styling for services.html */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .active {
+            color: var(--primary-orange) !important;
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 4px;
+        }
+
+        /* Services Page Hero */
+        .services-hero {
+            padding: 120px 0 60px 0;
+            text-align: center;
+            background: radial-gradient(circle at top right, rgba(201, 107, 73, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at bottom left, rgba(38, 90, 83, 0.04) 0%, transparent 45%);
+        }
+
+        .services-hero .container {
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .services-hero h1 {
+            font-size: 54px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .services-hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .services-hero .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Glassmorphism Cards */
+        .services-grid-page {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 40px 0 100px 0;
+        }
+
+        .glass-service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: var(--glass-shadow);
+            height: 100%;
+        }
+
+        .glass-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .glass-service-card .card-top {
+            margin-bottom: 24px;
+        }
+
+        .glass-service-card .icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Staggered card icon colors for rich aesthetics */
+        .icon-ai-automation {
+            background: linear-gradient(135deg, #FF8A00 0%, #FF5000 100%);
+        }
+
+        .icon-ai-chatbot {
+            background: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%);
+        }
+
+        .icon-ai-agents {
+            background: linear-gradient(135deg, #AD00FF 0%, #7000FF 100%);
+        }
+
+        .icon-workflow {
+            background: linear-gradient(135deg, #00FF87 0%, #60EFFF 100%);
+            color: var(--primary-green) !important;
+        }
+
+        .icon-booking {
+            background: linear-gradient(135deg, #FAD961 0%, #F76B1C 100%);
+        }
+
+        .icon-leadgen {
+            background: linear-gradient(135deg, #FF5E62 0%, #FF9966 100%);
+        }
+
+        .glass-service-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .glass-service-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .glass-service-card .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 20px;
+        }
+
+        .glass-service-card .features-list li {
+            font-size: 14px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .glass-service-card .features-list li i {
+            width: 16px;
+            height: 16px;
+            color: var(--primary-green);
+            flex-shrink: 0;
+        }
+
+        .glass-service-card .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-green);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 8px 0;
+            align-self: flex-start;
+            transition: var(--transition);
+        }
+
+        .glass-service-card .learn-more-btn i {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-service-card:hover .learn-more-btn {
+            color: var(--primary-orange);
+        }
+
+        .glass-service-card:hover .learn-more-btn i {
+            transform: translateX(4px);
+        }
+
+        /* How We Work Process Section */
+        .process-section {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(201, 107, 73, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .process-header .section-label {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .process-header .section-label .dot {
+            background-color: var(--white);
+        }
+
+        .process-header h2 {
+            color: var(--white);
+        }
+
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+
+        /* Benefits Section */
+        .benefits-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-color: rgba(38, 90, 83, 0.2);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(38, 90, 83, 0.1);
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .benefit-icon i {
+            width: 22px;
+            height: 22px;
+        }
+
+        .benefit-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .benefit-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .benefits-header .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .benefits-section .section-title {
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .benefits-section .section-title .text-orange {
+            color: var(--primary-orange);
+        }
+
+        .benefits-header .section-subtitle {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .benefits-header .text-orange {
+            color: var(--primary-orange);
+        }
+
+        /* Mobile */
+
+        @media (max-width: 768px) {
+            .benefits-header .section-title {
+                font-size: 34px;
+            }
+
+            .benefits-header .section-subtitle {
+                font-size: 15px;
+            }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(38, 90, 83, 0.3);
+        }
+
+        .faq-question {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text-dark);
+            user-select: none;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary-green);
+        }
+
+        .faq-toggle-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+            color: var(--primary-orange);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            padding: 0 24px;
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .faq-item.active {
+            background-color: rgba(38, 90, 83, 0.02);
+            border-color: var(--primary-green);
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 24px 24px 24px;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0), padding 0.3s ease;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .services-grid-page {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-timeline {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+
+            .process-step {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 0;
+            }
+
+            .step-icon-wrap {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+
+            .step-number {
+                position: static;
+                margin-bottom: 8px;
+                display: inline-block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 38px;
+            }
+
+            .services-grid-page {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-hero .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .services-hero .hero-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="case-studies.html" class="nav-link">Case Studies</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn-primary">Book a Call <i data-feather="arrow-right"></i></a>
+        </div>
+    </header>
+
+    <section class="services-hero">
+        <div class="container">
+            <div class="section-label">
+                <span class="dot"></span> Our Services
+            </div>
+            <h1>Services Built for <span class="text-orange">Real Results</span></h1>
+            <p>We help businesses automate operations, improve customer experiences, and scale faster through AI-powered
+                solutions.</p>
+            <div class="hero-buttons">
+                <a href="index.html#contact" class="btn btn-primary">Book a Strategy Call <i
+                        data-feather="arrow-right"></i></a>
+                <a href="case-studies.html" class="btn btn-outline">View Case Studies</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="services-grid-page spotlight-container" id="glow-container">
+            <!-- AI Automation -->
+            <div class="glass-service-card glow-card" style="--glow-color: rgba(230, 126, 78, 0.25);">
+                <div class="card-top">
+                    <div class="icon-box icon-ai-automation">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                    <h3>AI Automation</h3>
+                    <p>Automate repetitive tasks, approvals, reporting, and internal workflows to save time and reduce
+                        operational costs.</p>
+                    <ul class="features-list">
+                        <li><i data-feather="check"></i> Email triage & categorization</li>
+                        <li><i data-feather="check"></i> Automated reporting dashboards</li>
+                        <li><i data-feather="check"></i> Custom API connections</li>
+                    </ul>
+                </div>
+                <button class="learn-more-btn">Learn More <i data-feather="chevron-right"></i></button>
+            </div>
+
+            <!-- AI Chatbot -->
+            <div class="glass-service-card glow-card" style="--glow-color: rgba(59, 130, 246, 0.25);">
+                <div class="card-top">
+                    <div class="icon-box icon-ai-chatbot">
+                        <i data-lucide="message-square"></i>
+                    </div>
+                    <h3>AI Chatbot</h3>
+                    <p>Deploy intelligent chatbots that answer customer questions, evaluate leads, and support visitors
+                        24/7 across multiple channels.</p>
+                    <ul class="features-list">
+                        <li><i data-feather="check"></i> Custom NLP training</li>
+                        <li><i data-feather="check"></i> Multi-channel deployment</li>
+                        <li><i data-feather="check"></i> Human-handoff workflows</li>
+                    </ul>
+                </div>
+                <button class="learn-more-btn">Learn More <i data-feather="chevron-right"></i></button>
+            </div>
+
+            <!-- AI Agents -->
+            <div class="glass-service-card glow-card" style="--glow-color: rgba(168, 85, 247, 0.25);">
+                <div class="card-top">
+                    <div class="icon-box icon-ai-agents">
+                        <i data-lucide="brain"></i>
+                    </div>
+                    <h3>AI Agents</h3>
+                    <p>Develop autonomous AI agents capable of handling complex operations, data sorting, and multi-step
+                        business interactions.</p>
+                    <ul class="features-list">
+                        <li><i data-feather="check"></i> Context-aware task running</li>
+                        <li><i data-feather="check"></i> Multi-agent coordination</li>
+                        <li><i data-feather="check"></i> Safe execution sandboxes</li>
+                    </ul>
+                </div>
+                <button class="learn-more-btn">Learn More <i data-feather="chevron-right"></i></button>
+            </div>
+
+            <!-- Workflow Automation -->
+            <div class="glass-service-card glow-card" style="--glow-color: rgba(16, 185, 129, 0.25);">
+                <div class="card-top">
+                    <div class="icon-box icon-workflow">
+                        <i data-lucide="workflow"></i>
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>Connect your fragmented software stacks, syncing data instantly across your team's favorite
+                        business tools.</p>
+                    <ul class="features-list">
+                        <li><i data-feather="check"></i> Cross-platform sync</li>
+                        <li><i data-feather="check"></i> Custom webhook triggers</li>
+                        <li><i data-feather="check"></i> Error monitoring & alerting</li>
+                    </ul>
+                </div>
+                <button class="learn-more-btn">Learn More <i data-feather="chevron-right"></i></button>
+            </div>
+
+            <!-- Appointment Booking -->
+            <div class="glass-service-card glow-card" style="--glow-color: rgba(14, 165, 233, 0.25);">
+                <div class="card-top">
+                    <div class="icon-box icon-booking">
+                        <i data-lucide="calendar"></i>
+                    </div>
+                    <h3>Appointment Booking</h3>
+                    <p>Remove friction with automated self-service scheduling, smart slot finding, SMS reminders, and
+                        instant CRM logs.</p>
+                    <ul class="features-list">
+                        <li><i data-feather="check"></i> Two-way calendar sync</li>
+                        <li><i data-feather="check"></i> Automated reminder queues</li>
+                        <li><i data-feather="check"></i> No-show recovery logic</li>
+                    </ul>
+                </div>
+                <button class="learn-more-btn">Learn More <i data-feather="chevron-right"></i></button>
+            </div>
+
+            <!-- AI Lead Generation -->
+            <div class="glass-service-card glow-card" style="--glow-color: rgba(230, 126, 78, 0.25);">
+                <div class="card-top">
+                    <div class="icon-box icon-leadgen">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <h3>AI Lead Generation</h3>
+                    <p>Identify target audiences, personalize outreach messages, and automatically nurture leads through
+                        responsive sales sequences.</p>
+                    <ul class="features-list">
+                        <li><i data-feather="check"></i> Automated contact scraping</li>
+                        <li><i data-feather="check"></i> AI personalization engines</li>
+                        <li><i data-feather="check"></i> Automated followup campaigns</li>
+                    </ul>
+                </div>
+                <button class="learn-more-btn">Learn More <i data-feather="chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <div class="benefits-header">
+                <div class="section-label">
+                    <span class="dot"></span> Why Choose Us
+                </div>
+
+                <h2 class="section-title">
+                    Why Businesses Choose
+                    <span class="text-orange">Senoiq</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    We help businesses save time, reduce costs, improve customer experiences,
+                    and scale faster through intelligent AI systems and workflow automation.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <!-- Save Time -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <h3 class="benefit-title">Save Time</h3>
+                    <p class="benefit-desc">We offload hours of repetitive manual data entry, routing, and reporting
+                        chores to focus on your core growth.</p>
+                </div>
+
+                <!-- Reduce Costs -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="dollar-sign"></i>
+                    </div>
+                    <h3 class="benefit-title">Reduce Costs</h3>
+                    <p class="benefit-desc">Intelligent code agents scale without extra overhead, bringing your unit
+                        operations cost down substantially.</p>
+                </div>
+
+                <!-- Improve Customer Experience -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="smile"></i>
+                    </div>
+                    <h3 class="benefit-title">Improve Customer Experience</h3>
+                    <p class="benefit-desc">Provide your leads and customers with instant replies, precise evaluative
+                        data, and zero delayed responses.</p>
+                </div>
+
+                <!-- Increase Efficiency -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="benefit-title">Increase Efficiency</h3>
+                    <p class="benefit-desc">Connect legacy systems to modern database APIs to keep information flowing
+                        in real-time with zero bottlenecks.</p>
+                </div>
+
+                <!-- Scale Faster -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <h3 class="benefit-title">Scale Faster</h3>
+                    <p class="benefit-desc">Launch marketing sequences, scale support desks, and manage processes
+                        instantly without seasonal hiring bottlenecks.</p>
+                </div>
+
+                <!-- 24/7 Automation -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h3 class="benefit-title">24/7 Automation</h3>
+                    <p class="benefit-desc">Your custom scheduled workflows and chatbots run continuously, capturing
+                        pipelines even while your physical team sleeps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container faq-container">
+            <div class="faq-header">
+                <div class="section-label">
+                    <span class="dot"></span> FAQ
+                </div>
+                <h2 class="section-title">Frequently Asked <span class="text-orange">Questions</span></h2>
+            </div>
+
+            <div class="faq-list">
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does implementation take?</span>
+                        <i data-feather="chevron-down" class="faq-toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simple chatbot and basic workflow automations can be deployed in 2-3 weeks. Larger, custom AI
+                            agents and enterprise workflow integrations typically take 4-6 weeks depending on
+                            complexity.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can you integrate with existing software?</span>
+                        <i data-feather="chevron-down" class="faq-toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we integrate AI solutions with CRM systems (HubSpot, Salesforce), ERPs, communication
+                            channels (Slack, WhatsApp, Teams), email clients, and standard APIs.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide support after launch?</span>
+                        <i data-feather="chevron-down" class="faq-toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We offer dedicated post-launch monitoring, maintenance, optimization, and monthly
+                            support retainer packages to ensure your systems evolve with your business.</p>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can AI work with my existing workflow?</span>
+                        <i data-feather="chevron-down" class="faq-toggle-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Definitely. Our approach is to integrate AI as an assistant to your existing team, working
+                            alongside your current software tools and operational procedures rather than replacing them.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container cta-container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to <span class="text-orange">Automate</span> Your Business?</h2>
+                <p class="cta-desc">Let's build intelligent systems that save time, reduce costs, and help your business
+                    grow.</p>
+                <a href="mailto:senoiq.ai@gmail.com" class="cta-email">senoiq.ai@gmail.com <i
+                        data-feather="arrow-up-right"></i></a>
+            </div>
+            <div class="cta-image-wrapper">
+                <img src="assets/cta_illustration.svg" alt="Automation Dashboard" class="cta-image">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
+                    </div>
+                </a>
+
+                <p class="footer-desc">We specialize in modern workflow automation and systems consultancy firm. We
+                    design, build, and support manual workflow to optimized and automated operations.</p>
+                <div class="social-links dark">
+                    <a href="https://www.instagram.com/senoiq.ai/" target="_blank"><i data-feather="instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/senoiq-ai-a59739417/" target="_blank"><i data-feather="linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61590957166415&rdid=LtUJjN8qajWeyWb3&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14bvLGg4zK7%2F#" target="_blank"><i data-feather="facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="index.html#about">About</a>
+                <a href="#">Blogs</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Services</h4>
+                <a href="services.html">AI Automation</a>
+                <a href="services.html">AI Chatbot</a>
+                <a href="services.html">AI Agents</a>
+                <a href="services.html">Appointment Booking</a>
+                <a href="services.html">Workflow Automation</a>
+                <a href="services.html">AI Lead Generation</a>
+            </div>
+            <div class="footer-inquiries">
+                <h4 class="footer-title">Inquiries</h4>
+                <a href="mailto:senoiq.ai@gmail.com">senoiq.ai@gmail.com</a>
+                <p>Nashik, Maharashtra - 422101</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SENOIQ. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Trigger feather & lucide
+        feather.replace();
+        lucide.createIcons();
+
+        // FAQ accordion toggle code
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const wasActive = parent.classList.contains('active');
+
+                // Close other open accordion items
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                });
+
+                if (!wasActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+
+        // Spotlight animation coordinates mapping for .glow-card elements on services page
+        const glowContainer = document.getElementById('glow-container');
+        const glowCards = document.querySelectorAll('.glow-card');
+
+        if (glowContainer && glowCards.length > 0) {
+            glowContainer.addEventListener('mousemove', (e) => {
+                glowCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+
+        // Additional scroll-fade animation observer for services-only elements
+        const servicesObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const servicesObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+
+                    setTimeout(() => {
+                        entry.target.style.transition = '';
+                        entry.target.style.transitionDelay = '0s';
+                    }, 1000);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, servicesObserverOptions);
+
+        const newAnimateElements = document.querySelectorAll('.process-step, .benefit-card, .faq-item');
+        newAnimateElements.forEach((el, index) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+
+            // Stagger transition delays
+            if (el.classList.contains('process-step')) {
+                el.style.transitionDelay = `${index * 0.1}s`;
+            } else if (el.classList.contains('benefit-card')) {
+                el.style.transitionDelay = `${(index % 3) * 0.1}s`;
+            } else if (el.classList.contains('faq-item')) {
+                el.style.transitionDelay = `${index * 0.05}s`;
+            }
+
+            servicesObserver.observe(el);
+        });
+    </script>
+</body>
+
+</html>
