@@ -1114,7 +1114,7 @@ a {
 
 /* Footer */
 .footer {
-    background-color: var(--white);
+    background-color: var(--white) !important;
     padding: 80px 0 30px;
     border-top: 1px solid var(--border-color);
 }
@@ -1123,7 +1123,7 @@ a {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 40px;
-   margin-bottom: 48px;
+    margin-bottom: 48px;
     align-items: start;
 }
 
@@ -1137,10 +1137,11 @@ a {
     width: 140px;
     height: 57px;
 }
+
 .footer-tagline {
     font-size: 15px;
     color: var(--text-light);
-     line-height: 1.5;
+    line-height: 1.5;
     font-weight: 500;
 }
 
@@ -1148,7 +1149,6 @@ a {
     display: flex;
     gap: 10px;
     margin-top: 8px;
-
 }
 
 .footer-socials a {
@@ -1158,7 +1158,7 @@ a {
     width: 32px;
     height: 32px;
     border-radius: 6px;
-    color: var(--white);
+    color: var(--white) !important;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -1166,38 +1166,52 @@ a {
     transform: translateY(-2px);
     opacity: 0.9;
 }
+
 .footer-socials a i {
     width: 16px;
     height: 16px;
 }
+
 .footer-socials .linkedin {
-    background-color: #0077b5;
+    background-color: #0077b5 !important;
 }
+
 .footer-socials .instagram {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
 }
+
 .footer-socials .facebook {
-    background-color: #1877f2;
+    background-color: #1877f2 !important;
 }
+
 .footer-column {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .footer-heading {
     font-size: 16px;
     font-weight: 600;
-   color: var(--text-dark);
+    color: var(--text-dark);
     margin: 0;
 }
 
 .footer-list {
-    list-style: none;
+    list-style: none !important;
+    list-style-type: none !important;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.footer-list li {
+    list-style: none !important;
+    list-style-type: none !important;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-list li a {
@@ -1214,11 +1228,13 @@ a {
 .footer-divider-container {
     width: 100%;
 }
+
 .footer-divider {
     border: 0;
     border-top: 1px solid var(--border-color);
     margin: 0;
 }
+
 .footer-bottom-container {
     display: flex;
     justify-content: space-between;
