@@ -1265,14 +1265,15 @@ a {
     .contact-container {
         flex-direction: column;
     }
-    
- .hero-diagram {
+
+    .hero-diagram {
         flex: none !important;
         width: 400px !important;
         height: 400px !important;
         margin: 40px auto 0 auto !important;
         transform-origin: center !important;
     }
+
     .features-container {
         flex-wrap: wrap;
     }
@@ -1618,154 +1619,35 @@ a {
         display: none !important;
     }
 
-    /* Hero Diagram Mobile Grid Layout */
+    /* Hero Diagram Centering for Mobile */
     .hero-diagram {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: auto auto auto !important;
-        gap: 30px !important;
-        width: 100% !important;
-        max-width: 320px !important;
-        height: auto !important;
         margin: 30px auto 0 auto !important;
-        position: relative !important;
-        justify-items: center !important;
-        align-items: center !important;
+        transform-origin: center !important;
     }
+}
 
-    .connection-lines {
-        display: none !important;
+/* Scaling Rules for Hero Diagram on Mobile viewports */
+@media (max-width: 480px) {
+    .hero-diagram {
+        transform: scale(0.85) !important;
+        margin: -10px auto -30px auto !important;
+        transform-origin: center !important;
     }
+}
 
-    .top-node-pos {
-        grid-row: 1 !important;
-        grid-column: 1 / span 2 !important;
-        position: relative !important;
-        justify-self: center !important;
-        top: auto !important;
-        left: auto !important;
+@media (max-width: 390px) {
+    .hero-diagram {
+        transform: scale(0.75) !important;
+        margin: -30px auto -50px auto !important;
+        transform-origin: center !important;
     }
+}
 
-    .top-node-pos::after {
-        content: '' !important;
-        position: absolute !important;
-        bottom: -23px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 2px !important;
-        height: 23px !important;
-        border-left: 2px dashed rgba(15, 92, 89, 0.4) !important;
-        z-index: -1 !important;
-    }
-
-    .left-node-pos {
-        grid-row: 2 !important;
-        grid-column: 1 !important;
-        position: relative !important;
-        justify-self: start !important;
-        top: auto !important;
-        left: auto !important;
-    }
-
-    .left-node-pos::after {
-        content: '' !important;
-        position: absolute !important;
-        right: -27px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        width: 27px !important;
-        height: 2px !important;
-        border-top: 2px dashed rgba(15, 92, 89, 0.4) !important;
-        z-index: -1 !important;
-    }
-
-    .right-node-pos {
-        grid-row: 2 !important;
-        grid-column: 2 !important;
-        position: relative !important;
-        justify-self: end !important;
-        top: auto !important;
-        left: auto !important;
-    }
-
-    .right-node-pos::after {
-        content: '' !important;
-        position: absolute !important;
-        left: -27px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        width: 27px !important;
-        height: 2px !important;
-        border-top: 2px dashed rgba(15, 92, 89, 0.4) !important;
-        z-index: -1 !important;
-    }
-
-    .bottom-left-node-pos {
-        grid-row: 3 !important;
-        grid-column: 1 !important;
-        position: relative !important;
-        justify-self: start !important;
-        top: auto !important;
-        left: auto !important;
-    }
-
-    .bottom-left-node-pos::after {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        right: -27px !important;
-        width: 36px !important;
-        height: 2px !important;
-        border-top: 2px dashed rgba(15, 92, 89, 0.4) !important;
-        transform: rotate(-40deg) !important;
-        transform-origin: top left !important;
-        z-index: -1 !important;
-    }
-
-    .bottom-right-node-pos {
-        grid-row: 3 !important;
-        grid-column: 2 !important;
-        position: relative !important;
-        justify-self: end !important;
-        top: auto !important;
-        left: auto !important;
-    }
-
-    .bottom-right-node-pos::after {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 36px !important;
-        height: 2px !important;
-        border-top: 2px dashed rgba(15, 92, 89, 0.4) !important;
-        transform: rotate(-140deg) !important;
-        transform-origin: top left !important;
-        z-index: -1 !important;
-    }
-
-    .diagram-center {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        z-index: 10 !important;
-    }
-
-    .center-card {
-        width: 98px !important;
-        height: 98px !important;
-        border-radius: 18px !important;
-    }
-
-    .center-logo {
-        width: 63px !important;
-        height: 63px !important;
-    }
-
-    .animated-center::before {
-        width: 84px !important;
-        height: 84px !important;
+@media (max-width: 340px) {
+    .hero-diagram {
+        transform: scale(0.68) !important;
+        margin: -45px auto -65px auto !important;
+        transform-origin: center !important;
     }
 }
 
@@ -1845,11 +1727,6 @@ a {
 }
 
 @media (max-width: 380px) {
-    .hero-diagram {
-        transform: scale(0.9) !important;
-        margin-top: 15px !important;
-    }
-
     .animated-about-diagram {
         transform: scale(0.7) !important;
         margin: -40px auto !important;
