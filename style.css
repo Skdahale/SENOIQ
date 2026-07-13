@@ -690,7 +690,7 @@ a {
     box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.04);
 
-    animation: counterRotate 20s linear infinite;
+    animation: counterRotate 12s linear infinite;
 }
 
 @keyframes counterRotate {
@@ -1781,4 +1781,4 @@ a {
         transform: scale(0.7) !important;
         margin: -40px auto !important;
     }
-}
+}
