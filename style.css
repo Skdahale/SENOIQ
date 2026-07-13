@@ -1265,7 +1265,14 @@ a {
     .contact-container {
         flex-direction: column;
     }
-
+    
+ .hero-diagram {
+        flex: none !important;
+        width: 400px !important;
+        height: 400px !important;
+        margin: 40px auto 0 auto !important;
+        transform-origin: center !important;
+    }
     .features-container {
         flex-wrap: wrap;
     }
