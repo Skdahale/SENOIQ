@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="style.css">
     <!-- Feather Icons for lightweight SVGs -->
     <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="icon" type="image/png" href="assets/fav.png">
 </head>
 
 <body>
@@ -137,10 +136,9 @@
                     <span class="dot"></span> Our Impact in Numbers
                 </div>
                 <h2 class="section-title">Measurable Results <span class="text-orange">That Matter</span></h2>
-                <p class="stats-subtitle">Proven workflows and intelligent automation systems driving efficiency and
-                    growth.</p>
+                <p class="stats-subtitle">Proven workflows and intelligent automation systems driving efficiency and growth.</p>
             </div>
-
+            
             <div class="stats-grid">
                 <!-- Stat 1: 500+ Hours Saved Monthly -->
                 <div class="glow-card" style="--glow-color: rgba(201, 107, 73, 0.15);">
@@ -402,7 +400,7 @@
                 <h2 class="cta-title">Ready to <span class="text-orange">Automate</span> Your Business?</h2>
                 <p class="cta-desc">We design intelligent AI systems and workflow automation that help companies save
                     time, reduce costs, and scale faster.</p>
-                <a href="mailto:senoiq.ai@gmail.com" target="_blank" class="cta-email">senoiq.ai@gmail.com <i
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@senoiqai.tech" target="_blank" class="cta-email">contact@senoiqai.tech <i
                         data-feather="arrow-up-right"></i></a>
             </div>
             <div class="cta-image-wrapper">
@@ -427,15 +425,14 @@
                         <div class="contact-icon"><i data-feather="mail"></i></div>
                         <div>
                             <div class="contact-label">Email Us</div>
-                            <a href="mailto:senoiq.ai@gmail.com" target="_blank"
-                                class="contact-value">senoiq.ai@gmail.com</a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@senoiqai.tech" target="_blank" class="contact-value">contact@senoiqai.tech</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i data-feather="map-pin"></i></div>
                         <div>
                             <div class="contact-label">Location</div>
-                            <div class="contact-value text-dark"> Mumbai, Maharashtra</div>
+                            <div class="contact-value text-dark">Nashik, Maharashtra</div>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -481,7 +478,7 @@
         </div>
     </section>
 
-    <footer class="footer">
+        <footer class="footer">
         <div class="container footer-container">
             <div class="footer-brand">
                 <a href="#" class="logo">
@@ -489,8 +486,7 @@
                         <img src="assets/web_logo.svg" alt="Senoiq Logo" class="logo-image">
                     </div>
                 </a>
-
-               <p class="footer-tagline">Build Intelligent Systems. Automate. Scale.</p>
+                <p class="footer-tagline">Build Intelligent Systems. Automate. Scale.</p>
                 <div class="footer-socials">
                     <a href="https://www.linkedin.com/in/senoiq-ai-a59739417/" target="_blank" class="linkedin">
                         <i data-feather="linkedin"></i>
@@ -503,7 +499,8 @@
                     </a>
                 </div>
             </div>
-           <div class="footer-column">
+            
+            <div class="footer-column">
                 <h4 class="footer-heading">Platform</h4>
                 <ul class="footer-list">
                     <li><a href="whatsapp-automation.html">WhatsApp Automation</a></li>
@@ -513,33 +510,40 @@
                     <li><a href="ai-content-automation.html">Content Automation</a></li>
                 </ul>
             </div>
-           <div class="footer-column">
+            
+            <div class="footer-column">
                 <h4 class="footer-heading">For Users</h4>
                 <ul class="footer-list">
                     <li><a href="case-studies.html">Case Studies</a></li>
                     <li><a href="blog.html">Blogs</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@senoiqai.tech" target="_blank">Offer Guidance</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@senoiqai.tech" target="_blank">Support Chat</a></li>
                 </ul>
             </div>
-           <div class="footer-column">
+            
+            <div class="footer-column">
                 <h4 class="footer-heading">Company</h4>
                 <ul class="footer-list">
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                     <li><a href="#">Terms of Service</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
-       <div class="footer-divider-container">
+        
+        <div class="footer-divider-container">
             <div class="container">
                 <hr class="footer-divider">
             </div>
         </div>
+        
         <div class="container footer-bottom-container">
             <div class="footer-copyright">
-                Copyright &copy; 2026 by <strong>Senoiq</strong>. All Rights Reserved.
+                Copyright &copy; 2025 by <strong>Senoiq</strong>. All Rights Reserved.
             </div>
             <div class="footer-bottom-links">
+                <a href="#">Sign In</a>
             </div>
         </div>
     </footer>
@@ -547,8 +551,61 @@
     <script src="script.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
+        // Initialize feather and lucide
         feather.replace();
         lucide.createIcons();
+
+        // Spotlight Glow for cards
+        const kpiCards = document.querySelectorAll('.kpi-card, .feature-detail-card, .impact-card, .workflow-step');
+        document.addEventListener('mousemove', (e) => {
+            kpiCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Scroll fade in animations
+        const detailObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const detailObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+
+                    setTimeout(() => {
+                        entry.target.style.transition = '';
+                        entry.target.style.transitionDelay = '0s';
+                    }, 1000);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, detailObserverOptions);
+
+        const detailAnimateElements = document.querySelectorAll('.kpi-card, .challenge-card, .workflow-flowchart-card, .solution-details, .feature-detail-card, .results-card, .impact-card, .next-case-card');
+        detailAnimateElements.forEach((el, index) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+
+            if (el.classList.contains('kpi-card')) {
+                el.style.transitionDelay = `${index * 0.08}s`;
+            } else if (el.classList.contains('impact-card')) {
+                el.style.transitionDelay = `${(index % 4) * 0.08}s`;
+            } else if (el.classList.contains('feature-detail-card')) {
+                el.style.transitionDelay = `${(index % 3) * 0.08}s`;
+            }
+
+            detailObserver.observe(el);
+        });
     </script>
 </body>
 
