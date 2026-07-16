@@ -167,14 +167,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Email Copy to Clipboard on Click
-    const emailTargetAddress = 'senoiq.ai@gmail.com';
+    // Email Copy to Clipboard and Redirect to Gmail on Click
+    const emailTargetAddress = 'contact@senoiqai.tech';
     document.querySelectorAll('a').forEach(link => {
         const href = link.getAttribute('href') || '';
         const text = link.textContent || '';
-        if (href.startsWith('mailto:') || href.includes(emailTargetAddress) || text.includes(emailTargetAddress)) {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
+        if (href.startsWith('mailto:') || href.includes('senoiq.ai@gmail.com') || href.includes(emailTargetAddress) || text.includes('senoiq.ai@gmail.com') || text.includes(emailTargetAddress)) {
+            // Update the link to point to Gmail compose window directly
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTargetAddress}`;
+            link.setAttribute('href', gmailUrl);
+            link.setAttribute('target', '_blank');
+            
+            link.addEventListener('click', () => {
                 navigator.clipboard.writeText(emailTargetAddress).then(() => {
                     showToast('Email copied to clipboard!');
                 }).catch(err => {
